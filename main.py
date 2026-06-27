@@ -1,14 +1,21 @@
 raw_data = " 101-Alice Smith-CS100 ; 102-Bob Jones-MA200 ; 103-Charlie Brown-CS100 ; 101-Alice Smith-MA200 "
+clean_records_database = []
 
-def clean_raw_data(raw_data_input: str):
+def cleanRawData(raw_data_input: str):
     cleaned_data_spaced = raw_data_input.split(";")
-    cleaned_data = []
 
     for record in cleaned_data_spaced:
         indv_record = record.strip().split("-")
-        cleaned_data.append(tuple(indv_record))        
+        clean_records_database.append(tuple(indv_record))
 
-    print(cleaned_data)
+def addIndividualRecords(new_record):
+    clean_records_database.append(tuple(new_record.split(', ')))
 
+def printRecords(records_list):
+    for record in clean_records_database:
+        id, name, course = record
+        print(f"ID: {id}, Name: {name}, Course: {course}")
 
-clean_raw_data(raw_data)
+cleanRawData(raw_data)
+addIndividualRecords("104, Diana Price, PH100")
+printRecords(clean_records_database)
