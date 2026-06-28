@@ -8,13 +8,16 @@ def cleanRawData(raw_data_input: str):
         indv_record = record.strip().split("-")
         clean_records_database.append(tuple(indv_record))
 
+
 def addIndividualRecords(new_record):
     clean_records_database.append(tuple(new_record.split(', ')))
+
 
 def printRecords(records_list):
     for record in records_list:
         id, name, course = record
         print(f"ID: {id}, Name: {name}, Course: {course}")
+
 
 cleanRawData(raw_data)
 addIndividualRecords("104, Diana Price, PH100")
