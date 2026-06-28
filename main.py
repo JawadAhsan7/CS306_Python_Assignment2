@@ -40,32 +40,44 @@ def printRecords(records_list: list | set):
 ##########################################################################################################################
 ###################################################### PROGRAM FLOW ######################################################
 ##########################################################################################################################
+
 raw_data = " 101-Alice Smith-CS100 ; 102-Bob Jones-MA200 ; 103-Charlie Brown-CS100 ; 101-Alice Smith-MA200 "
 clean_records_database = []
 
+# CLEANING THE DATA
 cleanRawData(raw_data, clean_records_database)
+
+# ADDING A NEW STUDENT RECORD
 addIndividualRecord("104, Diana Price, PH100", clean_records_database)
 
+# PRINT ENTIRE DATABASE LIST
 print("All Records: ")
 printRecords(clean_records_database)
 
-cs_students = set(record for record in clean_records_database if record[2] == "CS100")
-ma_students = set(record for record in clean_records_database if record[2] == "MA200")
 
-print("\nCS Students: ")
-printRecords(cs_students)
+##################################### COURSE ANALYSIS ################################
+# TWO SEPARATE SETS FOR CS AND MA STUDENTS
+cs_students = set(record for record in clean_records_database if record[2] == "CS100") 
+ma_students = set(record for record in clean_records_database if record[2] == "MA200") 
 
-print("\nMA Students: ")
-printRecords(ma_students)
+# NOT REQUIRED BY THE ASSIGNMENT
+# print("\nCS Students: ")
+# printRecords(cs_students)
 
+# print("\nMA Students: ")
+# printRecords(ma_students)
+
+# STUDENTS ENROLLED IN BOTH COURSES (WITH DUPLICATE NAME ENTRIES)
 students_enrolled_in_both_courses = [record[1] for record in clean_records_database]
 print("\nStudents enrolled in both courses: ")
 print(students_enrolled_in_both_courses)
 
+# STUDENTS ENROLLED ONLY IN CS100
 students_enrolled_only_in_cs100 = [record[1] for record in clean_records_database if record[2] == "CS100"]
 print("\nStudents enrolled in CS100: ")
 print(students_enrolled_only_in_cs100)
 
-unique_student_list_cs100_ma200 = set(record[1] for record in clean_records_database)
+# ALL UNIQUE STUDENTS WITH EITHER CS100 OR MA100
+unique_student_list_cs100_ma200 = set(record[1] for record in clean_records_database) # Fix required: student with PH100 must not be added
 print("\nMaster list of students taking either CS100 or MA200: ")
 print(unique_student_list_cs100_ma200)
