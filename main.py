@@ -78,6 +78,6 @@ print("\nStudents enrolled in CS100: ")
 print(students_enrolled_only_in_cs100)
 
 # ALL UNIQUE STUDENTS WITH EITHER CS100 OR MA100
-unique_student_list_cs100_ma200 = set(record[1] for record in clean_records_database) # Fix required: student with PH100 must not be added
+unique_student_list_cs100_ma200 = list(set(record[1] for record in clean_records_database if record[2] == "CS100" or record[2] == "MA200")) # Fix required: student with PH100 must not be added
 print("\nMaster list of students taking either CS100 or MA200: ")
 print(unique_student_list_cs100_ma200)
