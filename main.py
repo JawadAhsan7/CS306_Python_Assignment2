@@ -1,5 +1,6 @@
-raw_data = " 101-Alice Smith-CS100 ; 102-Bob Jones-MA200 ; 103-Charlie Brown-CS100 ; 101-Alice Smith-MA200 "
-clean_records_database = []
+##########################################################################################################################
+#################################################### HELPER FUNCTIONS ####################################################
+##########################################################################################################################
 
 def cleanRawData(raw_data_input: str, clean_list: list) -> None:
     """convert raw data from string to a list
@@ -35,6 +36,12 @@ def printRecords(records_list: list | set):
         id, name, course = record
         print(f"ID: {id}, Name: {name}, Course: {course}")
 
+
+##########################################################################################################################
+###################################################### PROGRAM FLOW ######################################################
+##########################################################################################################################
+raw_data = " 101-Alice Smith-CS100 ; 102-Bob Jones-MA200 ; 103-Charlie Brown-CS100 ; 101-Alice Smith-MA200 "
+clean_records_database = []
 
 cleanRawData(raw_data, clean_records_database)
 addIndividualRecord("104, Diana Price, PH100", clean_records_database)
