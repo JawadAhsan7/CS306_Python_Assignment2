@@ -48,7 +48,7 @@ clean_records_database = []
 cleanRawData(raw_data, clean_records_database)
 
 # ADDING A NEW STUDENT RECORD
-addIndividualRecord("104, Diana Price, PH100", clean_records_database)
+addIndividualRecord("104, Diana Prince, PH100", clean_records_database)
 
 # PRINT ENTIRE DATABASE LIST
 print("All Records: ")
@@ -57,8 +57,8 @@ printRecords(clean_records_database)
 
 ##################################### COURSE ANALYSIS ################################
 # TWO SEPARATE SETS FOR CS AND MA STUDENTS
-cs_students = set(record for record in clean_records_database if record[2] == "CS100") 
-ma_students = set(record for record in clean_records_database if record[2] == "MA200") 
+cs_students = set(record[1] for record in clean_records_database if record[2] == "CS100") 
+ma_students = set(record[1] for record in clean_records_database if record[2] == "MA200") 
 
 # NOT REQUIRED BY THE ASSIGNMENT
 # print("\nCS Students: ")
@@ -68,7 +68,7 @@ ma_students = set(record for record in clean_records_database if record[2] == "M
 # printRecords(ma_students)
 
 # STUDENTS ENROLLED IN BOTH COURSES (WITH DUPLICATE NAME ENTRIES)
-students_enrolled_in_both_courses = [record[1] for record in clean_records_database]
+students_enrolled_in_both_courses = [record[1] for record in clean_records_database if record[2] == "CS100" or record[2] == "MA200"]
 print("\nStudents enrolled in both courses: ")
 print(students_enrolled_in_both_courses)
 
