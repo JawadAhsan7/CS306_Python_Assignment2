@@ -30,3 +30,15 @@ printRecords(cs_students)
 
 print("\nMA Students: ")
 printRecords(ma_students)
+
+students_enrolled_in_both_courses = [record[1] for record in clean_records_database]
+print("\nStudents enrolled in both courses: ")
+print(students_enrolled_in_both_courses)
+
+students_enrolled_only_in_cs100 = [record[1] for record in clean_records_database if record[2] == "CS100"]
+print("\nStudents enrolled in CS100: ")
+print(students_enrolled_only_in_cs100)
+
+unique_student_list_cs100_ma200 = set(record[1] for record in clean_records_database)
+print("\nMaster list of students taking either CS100 or MA200: ")
+print(unique_student_list_cs100_ma200)
