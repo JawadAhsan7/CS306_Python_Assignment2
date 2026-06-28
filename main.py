@@ -1,7 +1,12 @@
 raw_data = " 101-Alice Smith-CS100 ; 102-Bob Jones-MA200 ; 103-Charlie Brown-CS100 ; 101-Alice Smith-MA200 "
 clean_records_database = []
 
-def cleanRawData(raw_data_input: str):
+def cleanRawData(raw_data_input: str) -> None:
+    """convert raw data from string to a list
+
+    Args:
+        raw_data_input (str): a raw string that holds the data that needs to be cleaned
+    """
     cleaned_data_spaced = raw_data_input.split(";")
 
     for record in cleaned_data_spaced:
@@ -9,11 +14,21 @@ def cleanRawData(raw_data_input: str):
         clean_records_database.append(tuple(indv_record))
 
 
-def addIndividualRecords(new_record):
+def addIndividualRecords(new_record: str) -> None:
+    """Add a new record to the list.
+
+    Args:
+        new_record (str): New record to add to the list. Format: ID, Name, Course (as string comma separated)
+    """
     clean_records_database.append(tuple(new_record.split(', ')))
 
 
-def printRecords(records_list):
+def printRecords(records_list: list | set):
+    """Print the cleaned data list
+
+    Args:
+        records_list (list | set): List containing the clean data.
+    """
     for record in records_list:
         id, name, course = record
         print(f"ID: {id}, Name: {name}, Course: {course}")
