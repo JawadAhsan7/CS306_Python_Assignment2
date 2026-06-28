@@ -1,26 +1,28 @@
 raw_data = " 101-Alice Smith-CS100 ; 102-Bob Jones-MA200 ; 103-Charlie Brown-CS100 ; 101-Alice Smith-MA200 "
 clean_records_database = []
 
-def cleanRawData(raw_data_input: str) -> None:
+def cleanRawData(raw_data_input: str, clean_list: list) -> None:
     """convert raw data from string to a list
 
     Args:
         raw_data_input (str): a raw string that holds the data that needs to be cleaned
+        clean_list (list): the list you want to add the cleaned records to
     """
     cleaned_data_spaced = raw_data_input.split(";")
 
     for record in cleaned_data_spaced:
         indv_record = record.strip().split("-")
-        clean_records_database.append(tuple(indv_record))
+        clean_list.append(tuple(indv_record))
 
 
-def addIndividualRecords(new_record: str) -> None:
+def addIndividualRecord(new_record: str, clean_list: list) -> None:
     """Add a new record to the list.
 
     Args:
         new_record (str): New record to add to the list. Format: ID, Name, Course (as string comma separated)
+        clean_list (list): The list to add your individual record to.
     """
-    clean_records_database.append(tuple(new_record.split(', ')))
+    clean_list.append(tuple(new_record.split(', ')))
 
 
 def printRecords(records_list: list | set):
@@ -34,8 +36,8 @@ def printRecords(records_list: list | set):
         print(f"ID: {id}, Name: {name}, Course: {course}")
 
 
-cleanRawData(raw_data)
-addIndividualRecords("104, Diana Price, PH100")
+cleanRawData(raw_data, clean_records_database)
+addIndividualRecord("104, Diana Price, PH100", clean_records_database)
 
 print("All Records: ")
 printRecords(clean_records_database)
