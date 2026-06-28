@@ -18,4 +18,15 @@ def printRecords(records_list):
 
 cleanRawData(raw_data)
 addIndividualRecords("104, Diana Price, PH100")
+
+print("All Records: ")
 printRecords(clean_records_database)
+
+cs_students = set(record for record in clean_records_database if record[2] == "CS100")
+ma_students = set(record for record in clean_records_database if record[2] == "MA200")
+
+print("\nCS Students: ")
+printRecords(cs_students)
+
+print("\nMA Students: ")
+printRecords(ma_students)
