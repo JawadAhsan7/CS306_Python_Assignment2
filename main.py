@@ -60,15 +60,6 @@ printRecords(clean_records_database)
 cs_students = set(record[1] for record in clean_records_database if record[2] == "CS100") 
 ma_students = set(record[1] for record in clean_records_database if record[2] == "MA200") 
 
-########################### LOGICAL ERRORS IN THE SOLUTION DUE TO MISUNDERSTANDING OF REQUIREMENTS ###########################
-##################### ALL CODE BELOW THIS LINE MUST BE REWRITTEN TO COMPLETE THE ASSIGNMENT REQUIREMENTS #####################
-
-# 2. Using appropriate operations, find and print:
-#     ◦ The students enrolled in both courses.
-#     ◦ The students enrolled only in CS100.
-#     ◦ A master list of all unique students taking either CS100 or MA200.
-
-
 # STUDENTS ENROLLED IN BOTH COURSES
 print("\nStudents enrolled in both courses:")
 print(cs_students.intersection(ma_students))
