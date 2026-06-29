@@ -70,5 +70,9 @@ ma_students = set(record[1] for record in clean_records_database if record[2] ==
 
 
 # STUDENTS ENROLLED IN BOTH COURSES
-print("\nStudents enrolled in both courses")
+print("\nStudents enrolled in both courses:")
 print(cs_students.intersection(ma_students))
+
+# STUDENTS ENROLLED ONLY IN CS100
+print("\nStudents enrolled in CS100 and not in MA200:")
+print(cs_students.difference(ma_students))
