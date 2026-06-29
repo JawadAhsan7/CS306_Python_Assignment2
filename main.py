@@ -63,29 +63,12 @@ ma_students = set(record[1] for record in clean_records_database if record[2] ==
 ########################### LOGICAL ERRORS IN THE SOLUTION DUE TO MISUNDERSTANDING OF REQUIREMENTS ###########################
 ##################### ALL CODE BELOW THIS LINE MUST BE REWRITTEN TO COMPLETE THE ASSIGNMENT REQUIREMENTS #####################
 
-# NOT REQUIRED BY THE ASSIGNMENT
-# print("\nCS Students: ")
-# printRecords(cs_students)
-
-# print("\nMA Students: ")
-# printRecords(ma_students)
-
-# # STUDENTS ENROLLED IN BOTH COURSES (WITH DUPLICATE NAME ENTRIES)
-# students_enrolled_in_both_courses = [record[1] for record in clean_records_database if record[2] == "CS100" or record[2] == "MA200"]
-# print("\nStudents enrolled in both courses: ")
-# print(students_enrolled_in_both_courses)
-
-# # STUDENTS ENROLLED ONLY IN CS100
-# students_enrolled_only_in_cs100 = [record[1] for record in clean_records_database if record[2] == "CS100"]
-# print("\nStudents enrolled in CS100: ")
-# print(students_enrolled_only_in_cs100)
-
-# # ALL UNIQUE STUDENTS WITH EITHER CS100 OR MA100
-# unique_student_list_cs100_ma200 = list(set(record[1] for record in clean_records_database if record[2] == "CS100" or record[2] == "MA200")) # Fix required: student with PH100 must not be added
-# print("\nMaster list of students taking either CS100 or MA200: ")
-# print(unique_student_list_cs100_ma200)
-
 # 2. Using appropriate operations, find and print:
 #     ◦ The students enrolled in both courses.
 #     ◦ The students enrolled only in CS100.
 #     ◦ A master list of all unique students taking either CS100 or MA200.
+
+
+# STUDENTS ENROLLED IN BOTH COURSES
+print("\nStudents enrolled in both courses")
+print(cs_students.intersection(ma_students))
