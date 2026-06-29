@@ -76,3 +76,7 @@ print(cs_students.intersection(ma_students))
 # STUDENTS ENROLLED ONLY IN CS100
 print("\nStudents enrolled in CS100 and not in MA200:")
 print(cs_students.difference(ma_students))
+
+# ALL UNIQUE CS100 AND MA200 STUDENTS
+print("\nMaster list of students enrolled in either CS100 or MA200")
+print(cs_students.union(ma_students))
